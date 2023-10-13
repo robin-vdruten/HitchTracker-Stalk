@@ -4,9 +4,36 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HitchTrackerStalk"
+        xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="783" Width="1173">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
 
+        <DockPanel Grid.Column="0">
+            <wv2:WebView2 Name="WebView"
+            Source="https://www.google.com/maps" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" DockPanel.Dock="Top" Uid="WebView2"
+        />
+        </DockPanel>
+
+        <ScrollViewer Grid.Column="1">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button Content="Show Routes" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click_1" Margin="0,0,0,20"/>
+                <ListView Name="distanceListView" Margin="10,10,10,10" Height="300">
+                    <!-- Adjust the Height property to give the ListView more room -->
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Distances" Width="200" DisplayMemberBinding="{Binding Distance}" />
+                            <!-- Adjust the Width property to make the column wider -->
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Label x:Name="priceLabel" Content="Price : " HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" Width="200"/>
+                <Button Content="Reset" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" Click="Button_Click_Reset" Width="Auto"/>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Window>
