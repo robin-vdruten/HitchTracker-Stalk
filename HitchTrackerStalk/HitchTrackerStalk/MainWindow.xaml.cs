@@ -25,6 +25,7 @@ namespace HitchTrackerStalk
     public class DistanceItem
     {
         public string Distance { get; set; }
+        public string ShowDistance => Distance + "km";
     }
 
     public partial class MainWindow : Window

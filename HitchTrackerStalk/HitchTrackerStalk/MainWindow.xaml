@@ -23,11 +23,9 @@
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Button Content="Show Routes" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click_1" Margin="0,0,0,20"/>
                 <ListView Name="distanceListView" Margin="10,10,10,10" Height="300">
-                    <!-- Adjust the Height property to give the ListView more room -->
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Distances" Width="200" DisplayMemberBinding="{Binding Distance}" />
-                            <!-- Adjust the Width property to make the column wider -->
                         </GridView>
                     </ListView.View>
                 </ListView>
